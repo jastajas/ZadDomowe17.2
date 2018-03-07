@@ -1,0 +1,54 @@
+.bckgd{
+background-color: #d9e6f2;
+}
+
+.headerName{
+text-align: center;
+}
+
+.allform{ 
+/*background-color: #F5F5DC;*/ 
+width: 500px;
+height: 400px;
+margin: auto;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+align-content: space-between;
+align-items: flex-start;
+flex-wrap: nowrap;
+}
+
+.nameDiv{
+/*background-color: #00FFFF;*/
+display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+align-items: flex-start;
+}
+
+.nameInput{
+width: 500px;
+}
+.priceDiv{
+/*background-color: #BDB76B;*/
+display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+align-items: flex-start;
+}
+
+.priceInput{
+width: 500px;
+}
+
+.categoryDiv{
+width: 500px;
+display: flex;
+flex-direction: column;
+flex-wrap: nowrap;
+}
+
+.defaultCategory{
+color:#b3b3b3;
+}
