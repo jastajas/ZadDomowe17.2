@@ -52,3 +52,13 @@ flex-wrap: nowrap;
 .defaultCategory{
 color:#b3b3b3;
 }
+
+.fieldCustom {
+    background: cadetblue;
+    width: 400px;
+    position: relative;
+    left: 20px; display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border: 3px groove;
+}

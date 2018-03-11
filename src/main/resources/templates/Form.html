@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="../static/regStyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</head>
+<body class="bckgd">
+<div class="allform">
+    <form method="post" action="/add" th:object="${addProduct}">
+        <h1 class="headerName">Formularz dodawania nowego produktu</h1><br/>
+
+        <div class="form-group nameDiv">
+            <label for="nameID">Nazwa produktu</label>
+            <input class="form-control nameInput" id="nameID" type="text" name="name" placeholder="Wpisz Nazwę Produktu"
+                   required th:field="*{name}">
+        </div>
+
+        <div class="priceDiv">
+            <label for="priceID">Cena</label>
+            <input class="form-control priceInput" id="priceID" pattern="[0-9]{1,}.[0-9]{2}"
+                   title="Cena powinna zawierać dwa miejsca po przecinku i powinien zostać wykorzystany znak kropki ."
+                   type="text" name="price" placeholder="Wpisz Cenę Produktu" required th:field="*{price}">
+        </div>
+        </br>
+
+        <div class="categoryDiv">
+            <label for="categoryID">Kategoria produktu</label>
+            <select class="custom-select" id="categoryID" name="category" required th:field="*{category}">
+                <option class="defaultCategory" value="" selected data-default disabled>Wybierz...</option>
+                <option value="Produkty spożywcze">Produkty spożywcze</option>
+                <option value="Produkty gospodarstwa domowego">Produkty gospodarstwa domowego</option>
+                <option value="Inne">Inne</option>
+            </select><br/>
+        </div><br/>
+
+        <div class="form-group nameDiv">
+            <label for="pictureID">Zdjęcie - link</label>
+            <input class="form-control nameInput" id="pictureID" type="text" name="picture" placeholder="Wpisz ścieżkę dostępu"
+                   required th:field="*{picture}">
+        </div>
+
+        <div class="buttonDiv">
+            <input class="btn btn-primary" type="submit" value="Dodaj Produkt">
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

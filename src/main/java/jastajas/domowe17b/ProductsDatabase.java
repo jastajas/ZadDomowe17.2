@@ -10,9 +10,9 @@ import java.util.List;
 public class ProductsDatabase {
 
     private List<Product> products;
-    private double sumPrices;
 
-    public ProductsDatabase() throws Exception{
+
+    public ProductsDatabase() throws Exception {
         FileReader fr = new FileReader("src/main/resources/products.csv");
         BufferedReader bfr = new BufferedReader(fr);
 
@@ -20,10 +20,9 @@ public class ProductsDatabase {
 
         String line = null;
 
-        while ((line = bfr.readLine()) != null){
+        while ((line = bfr.readLine()) != null) {
             String[] temp = line.split(";");
-            products.add(new Product(temp[0], Double.valueOf(temp[1]),temp[2]));
-            sumPrices += Double.valueOf(temp[1]);
+            products.add(new Product(temp[1], Double.valueOf(temp[2]), temp[3], temp[4],Integer.valueOf(temp[0])));
         }
     }
 
@@ -31,23 +30,26 @@ public class ProductsDatabase {
         return products;
     }
 
-    public double getSumPrices() {
-        return sumPrices;
-    }
 
-        public void saveFile() throws IOException {
+    public void saveFile() throws IOException {
         FileWriter fw = new FileWriter("src/main/resources/products.csv", false);
         BufferedWriter bfw = new BufferedWriter(fw);
 
-            for (int i = 0; i < products.size(); i++) {
-                String newProduct = products.get(i).getName() + ";" +
-                        products.get(i).getPrice() + ";" +
-                        products.get(i).getCategory();
-                bfw.write(newProduct);
-                bfw.newLine();
-            }
+        for (int i = 0; i < products.size(); i++) {
+            String newProduct = products.get(i).getId() + ";" +
+                    products.get(i).getName() + ";" +
+                    products.get(i).getPrice() + ";" +
+                    products.get(i).getCategory() + ";" +
+                    products.get(i).getPicture();
+            bfw.write(newProduct);
+            bfw.newLine();
+        }
 
         bfw.close();
     }
 
+    public void addProductTdDB(Product product) throws IOException {
+        products.add(product);
+        saveFile();
+    }
 }
